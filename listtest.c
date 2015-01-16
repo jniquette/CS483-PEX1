@@ -17,20 +17,32 @@ int main(void) {
   char* one = "one";
   char* two = "two";
   char* three = "three";
-
+/*
+  printf("Inserting using list_insert_tail();");
+  fflush(stdout);
   list = list_insert_tail(list, one);
   list = list_insert_tail(list, two);
   list = list_insert_tail(list, three);
-  printf("list_insert_tail and list_print test:\n");
+  printf("\t\t\t[OK]\n");
+  fflush(stdout);
+
+  printf("list_insert_tail and list_print test:");
+  fflush(stdout);
   list_print(list);
+  printf("\t\t\t[OK]\n");
+  fflush(stdout);*/
   /* expected output:
   one
   two
   three
   */
 
-  list = list_insert_head(list, zero);
   printf("\nlist_insert_head and list_print test:\n");
+/*  list = list_insert_head(list, zero);
+  list = list_insert_head(list, one);
+  list = list_insert_head(list, two);
+  list = list_insert_head(list, three);
+*/
   list_print(list);
   /* expected output:
   zero
@@ -39,6 +51,7 @@ int main(void) {
   three
   */
 
+/*
   list = list_remove(list, "one");
   printf("\nlist_remove test (middle):\n");
   list_print(list);
@@ -48,6 +61,7 @@ int main(void) {
   three
   */
 
+/*
   list = list_remove(list, "three");
   printf("\nlist_remove test (tail):\n");
   list_print(list);
@@ -56,6 +70,7 @@ int main(void) {
   two
   */
 
+/*
   list = list_remove(list, "zero");
   printf("\nlist_remove test (head):\n");
   list_print(list);
@@ -63,6 +78,7 @@ int main(void) {
   two
   */
 
+/*
   list = list_insert_head(list, zero);
   list = list_insertn(list, one, 2);
   list = list_insertn(list, three, 4);
@@ -75,6 +91,7 @@ int main(void) {
   three
   */
 
+/*
   printf("\nlist_get test:\n");
   int i;
   for(i = 1; i < 5; i++) {
@@ -86,5 +103,6 @@ int main(void) {
   3: two
   4: three
   */
+
   list_destroy(list);
 }
