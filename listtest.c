@@ -1,7 +1,6 @@
 #include "list.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /* Example test program for CS 483 PEX 1
    USAFA/DFCS
@@ -18,84 +17,49 @@ int main(void) {
   char* two = "two";
   char* three = "three";
 
+
+  list_print(list);
+
   printf("Inserting using list_insert_tail()\n");
   list = list_insert_tail(list, one);
   list = list_insert_tail(list, two);
   list = list_insert_tail(list, three);
-
-  printf("\nlist_insert_tail and list_print test:\n");
   list_print(list);
-  /* expected output:
-  one
-  two
-  three
-  */
+
 
   printf("\nlist_insert_head and list_print test:\n");
   list = list_insert_head(list, "head1");
   list = list_insert_head(list, "head2");
   list = list_insert_head(list, "head3");
-
   list_print(list);
-  /* expected output:
-  zero
-  one
-  two
-  three
-  */
 
-/*
-  list = list_remove(list, "one");
+
+
   printf("\nlist_remove test (middle):\n");
+  list = list_remove(list, "one");
   list_print(list);
-  /* expected output:
-  zero
-  two
-  three
-  */
-
-/*
-  list = list_remove(list, "three");
-  printf("\nlist_remove test (tail):\n");
-  list_print(list);
-  /* expected output:
-  zero
-  two
-  */
-
-/*
-  list = list_remove(list, "zero");
-  printf("\nlist_remove test (head):\n");
-  list_print(list);
-  /* expected output:
-  two
-  */
-
 
   printf("\nlist_insertn test:\n");
-//  list = list_insert_head(list, zero);
-//  list = list_insertn(list, one, 2);
   list = list_insertn(list, "Put me Fourth", 4);
+  list = list_insertn(list, "Put me Beyond the end", 40);
   list_print(list);
-  /* expected output:
-  zero
-  one
-  two
-  three
-  */
 
-/*
+  printf("\nlist_removen test:\n");
+  list = list_removen(list, 8);
+  list_print(list);
+
+  printf("\nlist_printn test:\n");
+  list_printn(list, 1);
+  list_printn(list, 2);
+  list_printn(list, 7);
+  list_printn(list, 8);
+
   printf("\nlist_get test:\n");
   int i;
-  for(i = 1; i < 5; i++) {
+  for(i = 1; i <= 8; i++) {
     printf("%d: %s\n", i, list_get(list, i));
   }
-  /* expected output:
-  1: zero
-  2: one
-  3: two
-  4: three
-  */
 
+  printf("\nDestroy the List:\n");
   list_destroy(list);
 }
