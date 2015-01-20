@@ -2,6 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Linked List Implementation
+ * Author: C2C Justin Niquette
+ * Course: CS483, USAF Academy
+ * Date: 20 January 2015
+ * Documentation: No help received
+ */
+
 
 node* list_insert_tail(node* list, char* string)
 {
