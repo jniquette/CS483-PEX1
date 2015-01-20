@@ -17,20 +17,14 @@ int main(void) {
   char* one = "one";
   char* two = "two";
   char* three = "three";
-/*
-  printf("Inserting using list_insert_tail();");
-  fflush(stdout);
+
+  printf("Inserting using list_insert_tail()\n");
   list = list_insert_tail(list, one);
   list = list_insert_tail(list, two);
   list = list_insert_tail(list, three);
-  printf("\t\t\t[OK]\n");
-  fflush(stdout);
 
-  printf("list_insert_tail and list_print test:");
-  fflush(stdout);
+  printf("\nlist_insert_tail and list_print test:\n");
   list_print(list);
-  printf("\t\t\t[OK]\n");
-  fflush(stdout);*/
   /* expected output:
   one
   two
@@ -38,11 +32,10 @@ int main(void) {
   */
 
   printf("\nlist_insert_head and list_print test:\n");
-/*  list = list_insert_head(list, zero);
-  list = list_insert_head(list, one);
-  list = list_insert_head(list, two);
-  list = list_insert_head(list, three);
-*/
+  list = list_insert_head(list, "head1");
+  list = list_insert_head(list, "head2");
+  list = list_insert_head(list, "head3");
+
   list_print(list);
   /* expected output:
   zero
@@ -78,11 +71,11 @@ int main(void) {
   two
   */
 
-/*
-  list = list_insert_head(list, zero);
-  list = list_insertn(list, one, 2);
-  list = list_insertn(list, three, 4);
+
   printf("\nlist_insertn test:\n");
+//  list = list_insert_head(list, zero);
+//  list = list_insertn(list, one, 2);
+  list = list_insertn(list, "Put me Fourth", 4);
   list_print(list);
   /* expected output:
   zero
