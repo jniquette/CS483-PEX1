@@ -1,1 +1,3 @@
-Documentation: None
+Documentation: No Help Received from Others
+Valgrind program used to validate memory allocation and to ensure
+no leaks existed

@@ -5,10 +5,10 @@
 all: list
 
 list:
-	gcc list.c listtest.c -o niqlist
+	gcc list.c listtest.c -o listtest
 
 run: list
-	./niqlist
+	./listtest
 
 clean:
-	rm -rf *.o niqlist
+	rm -rf *.o listtest
