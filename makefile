@@ -2,13 +2,14 @@
 #C2C Justin Niquette
 #20 Jan 2015
 
-all: list
+list: list.o listtest.o makefile
+	gcc list.o listtest.o -o listtest
 
-list:
-	gcc list.c listtest.c -o listtest
+list.o: list.c list.h makefile
+	gcc -c list.c
 
-run: list
-	./listtest
+listtest.o: listtest.c list.h makefile
+	gcc -c listtest.c
 
 clean:
-	rm -rf *.o listtest
+	rm -rf *.o listtest *~

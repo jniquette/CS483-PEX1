@@ -60,6 +60,7 @@ int main(void) {
     printf("%d: %s\n", i, list_get(list, i));
   }
 
-  printf("\nDestroy the List:\n");
+  printf("\nDestroy the List:");
   list_destroy(list);
+  printf("\t\t\t[OK]\n");
 }

@@ -1,11 +1,13 @@
 #include "list.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* Linked List Implementation
  * Author: C2C Justin Niquette
  * Course: CS483, USAF Academy
- * Date: 20 January 2015
+ * Date: 22 January 2015
+ * Github: https://github.com/jniquette/CS483-PEX1
  * Documentation: No help received
  */
 
@@ -15,7 +17,8 @@ node* list_insert_tail(node* list, char* string)
   //Recursive Method - first see if the list is empty
   if(list == NULL){
     struct s_node *list = malloc(sizeof(struct s_node));
-    (*list).data = string;
+    (*list).data = malloc(((strlen(string) + 1) * sizeof(char)));
+    strcpy((*list).data, string);
     return list;    
   }
   
@@ -23,7 +26,8 @@ node* list_insert_tail(node* list, char* string)
   if((*list).next == NULL){
     struct s_node *newNode = malloc(sizeof(struct s_node));
     (*list).next = newNode;
-    (*newNode).data = string;
+    (*newNode).data = malloc(((strlen(string) + 1) * sizeof(char)));
+    strcpy((*newNode).data, string);
     return list;
   }
 
@@ -38,7 +42,8 @@ node* list_insert_head(node* list, char* string)
   //Create a new node to put the new string in
   struct s_node *newNode = malloc(sizeof(struct s_node));
   (*newNode).next = list;
-  (*newNode).data = string;
+  (*newNode).data = malloc(((strlen(string) + 1) * sizeof(char)));
+  strcpy((*newNode).data, string);
   return newNode;
 }
 
@@ -49,7 +54,8 @@ node* list_insertn(node* list, char* string, int n)
   if(n <= 1){ 
     struct s_node *newNode = malloc(sizeof(struct s_node));//Create a new node to put the new string in
     (*newNode).next = list; //Put that old next node after the new node
-    (*newNode).data = string;
+    (*newNode).data = malloc(((strlen(string) + 1) * sizeof(char)));
+    strcpy((*newNode).data, string);
     return newNode;
   }
 
@@ -74,6 +80,7 @@ node* list_remove(node* list, char* string)
     if((*list).data == string){
       //Free what we have, and then point to the next node
       node *newNextNode = (*list).next;
+      free((*list).data);
       free(list);
       return newNextNode;
     }
@@ -97,6 +104,7 @@ node* list_removen(node* list, int n)
   //Let's make it work on 0 also, since that makes sense too.
   if(n <= 1){ 
     node *newHead = (*list).next; //Move the old next to a temp pointer
+    free((*list).data);
     free(list);
     return newHead;
   }
@@ -162,6 +170,7 @@ void list_destroy(node* list)
   //Destroy one node at a time
   while(list != NULL){
     node *nextNode = (*list).next;
+    free((*list).data);
     free(list);
     list = nextNode;
   }
